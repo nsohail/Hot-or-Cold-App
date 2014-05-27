@@ -64,7 +64,7 @@ function playGame(){
 		$('#feedback').text('You guessed it!');
 		$("#userGuess").prop("disabled",true );
 		$('#guessButton').click(function(){
-			$('#feedback').text('You have already won silly! Start a new game')
+		$('#feedback').text('You have already won silly! Start a new game');
 		});
 
 	}
