@@ -39,7 +39,7 @@ function playGame(){
 	
 	
 	if (guess >= 101 || guess <= 0 || isNaN(guess)){
-	alert('Guess a number between 1 and 100');
+	$('#feedback').text('Guess a number between 1 and 100');
 	return false;
 	}
 
@@ -63,10 +63,14 @@ function playGame(){
 	if (howClose===0){
 		$('#feedback').text('You guessed it!');
 		$("#userGuess").prop("disabled",true );
+		$('#guessButton').click(function(){
+			$('#feedback').text('You have already won silly! Start a new game')
+		});
+
 	}
 
 
-	$('#guessList').append('<li>' + guess); //same thing as <li>+guess+</li>
+$('#guessList').append('<li>' + guess); //same thing as <li>+guess+</li>
 
 
 	var countGuess=$('#guessList').children().length;
@@ -82,8 +86,8 @@ function newGame(){
 	$('#count').text('0');
 	$('#userGuess').val("");
 	$('#guessList').children('li').remove();
-	Math.floor(Math.random()*100 + 1);
 	$("#userGuess").prop("disabled",false );
+	random=null;
 }
 
 
