@@ -15,10 +15,12 @@ $(".overlay").fadeIn(1000);
 
  /*my code*/
 
-$('#guessButton').click(function(){
-playGame();
-event.preventDefault();
-});
+// $('#guessButton').click(function(){
+// playGame();
+// event.preventDefault();
+// });
+
+newGame();
 
 $('.new').click(function(){
   newGame();
@@ -28,7 +30,7 @@ $('.new').click(function(){
 
 	
 	
-var random=Math.floor(Math.random()*100 + 1);
+var random=Math.floor(Math.random()*5 + 1);
 
 
 
@@ -43,7 +45,7 @@ function playGame(){
 	return false;
 	}
 
-
+	
 
 	if ((howClose<=100) && (howClose>=50)){
 		
@@ -64,8 +66,9 @@ function playGame(){
 		$('#feedback').text('You guessed it!');
 		$("#userGuess").prop("disabled",true );
 		
+		//$('#guessButton').off('click');
 		$('#guessButton').click(function(){
-		$('#feedback').text('You have already won silly! Start a new game');
+			$('#feedback').text('You have already won silly! Start a new game');
 		});
 
 	}
@@ -83,13 +86,19 @@ $('#guessList').append('<li>' + guess);
 
 
 function newGame(){
+	$('#guessButton').off('click');
+	$('#guessButton').click(function(){
+		playGame();
+		event.preventDefault();
+	});
+
+
 	$('#feedback').text('Make your Guess!');
 	$('#count').text('0');
 	$('#userGuess').val("");
 	$('#guessList').children('li').remove();
 	$("#userGuess").prop("disabled",false );
-	random=null;
-
+	//random=null;
 }
 
 
