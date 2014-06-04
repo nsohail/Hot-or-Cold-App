@@ -63,6 +63,7 @@ function playGame(){
 	if (howClose===0){
 		$('#feedback').text('You guessed it!');
 		$("#userGuess").prop("disabled",true );
+		
 		$('#guessButton').click(function(){
 		$('#feedback').text('You have already won silly! Start a new game');
 		});
@@ -70,8 +71,8 @@ function playGame(){
 	}
 
 
-$('#guessList').append('<li>' + guess); //same thing as <li>+guess+</li>
-
+//$('#listItems').append('<li>' + guess); //same thing as <li>+guess+</li>
+$('#guessList').append('<li>' + guess);
 
 	var countGuess=$('#guessList').children().length;
 	$('#count').text(countGuess);
@@ -88,6 +89,7 @@ function newGame(){
 	$('#guessList').children('li').remove();
 	$("#userGuess").prop("disabled",false );
 	random=null;
+
 }
 
 
