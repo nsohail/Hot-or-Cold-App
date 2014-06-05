@@ -15,10 +15,10 @@ $(".overlay").fadeIn(1000);
 
  /*my code*/
 
-// $('#guessButton').click(function(){
-// playGame();
-// event.preventDefault();
-// });
+$('#guessButton').click(function(){
+playGame();
+event.preventDefault();
+});
 
 newGame();
 
@@ -86,8 +86,9 @@ $('#guessList').append('<li>' + guess);
 
 
 function newGame(){
-	$('#guessButton').off('click');
-	$('#guessButton').click(function(){
+	random=Math.floor(Math.random()*5 + 1);	
+	$('#guessButton').off('click'); //get rid of the 'silly message'
+	$('#guessButton').click(function(){ //bring a new function to the uess button 
 		playGame();
 		event.preventDefault();
 	});
@@ -98,7 +99,6 @@ function newGame(){
 	$('#userGuess').val("");
 	$('#guessList').children('li').remove();
 	$("#userGuess").prop("disabled",false );
-	//random=null;
 }
 
 
